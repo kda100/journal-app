@@ -1,0 +1,10 @@
+<div class="card shadow" id="resource-details">
+  <div class="card-body">
+    <h2 class="card-title mb-4"><%= @learning_resource.title%></h2>
+    <h3 class="card-subtitle mb-2 text-muted"><%= @learning_resource.resource_type%></h3>
+    <%= link_to @learning_resource.url, @learning_resource.url%>
+    <p class="card-text mt-3"><%= @learning_resource.description%></p>
+    <%= link_to "Edit", edit_learning_resource_path(@learning_resource), class: "btn btn-secondary mb-3"%>
+  <%= link_to 'Delete', @learning_resource, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger mb-3" %>
+  </div>
+</div>

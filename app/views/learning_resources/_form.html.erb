@@ -1,0 +1,38 @@
+<%= form_with(model: learning_resource) do |form| %>
+  <% if learning_resource.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(learning_resource.errors.count, "error") %> prohibited this learning_resource from being saved:</h2>
+
+      <ul>
+        <% learning_resource.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="row">
+  <div class="mb-3 col-6">
+    <%= form.label :title, class: "form-label" %>
+    <%= form.text_field :title, class: "form-control", placeholder: "Enter title" %>
+  </div>
+
+  <div class="mb-3 col-6">
+    <%= form.label :resource_type, class: "form-label" %>
+    <%= form.select :resource_type, ["Business Consulting", "Design", "Development", "Quality Assurance", "Accessibility"], {}, {class: "form-select"}%>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :url, class: "form-label" %>
+    <%= form.text_field :url, class: "form-control", placeholder: "Enter url" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :description, class: "form-label" %>
+    <%= form.text_area :description, class: "form-control", placeholder: "Enter description" %>
+  </div>
+  <div>
+
+  <div>
+    <%= form.submit button_name, class: "btn btn-primary mt-3", style: "width: 100%"%>
+  </div>
+<% end %>
